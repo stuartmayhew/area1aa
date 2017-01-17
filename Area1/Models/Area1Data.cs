@@ -11,19 +11,17 @@ namespace Area1.Models
     public class Area1Data:DbContext
     {
         public Area1Data()
-            : base("Name=Dist23Data")
+            : base("Name=area1")
         {
             Database.SetInitializer<Area1Data>(null);
         }
 
-        public DbSet<Contacts> Contacts { get; set; }
+        public DbSet<Login> Login { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
             base.OnModelCreating(modelBuilder);
         }
-
-        public DbSet<Login> Login { get; set; }
     }
 }

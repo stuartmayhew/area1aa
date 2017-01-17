@@ -8,7 +8,7 @@ using System.Data.SqlClient;
 
 namespace Area1.Models
 {
-    class clsDataGetter
+    public class clsDataGetter
     {
         public SqlConnection conn;
         string cnStr;

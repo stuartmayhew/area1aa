@@ -1,0 +1,54 @@
+﻿@model Area1.Models.Login
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="text-center">
+    <h1>Area 1 Back Office</h1>
+    <p class="lead">Welcome to the Back Office for AA Area 1</p>
+</div>
+@using (Html.BeginForm("Login", "Home"))
+{
+    <div class="container">
+        <div class="card card-container">
+            <h2 class='login_title text-center'>Login</h2>
+            <hr>
+            <form class="form-signin">
+                @*<span id="reauth-email" class="reauth-email"></span>*@
+                <div class="form-group">
+                    <p class="input_title">Email</p>
+                    @Html.TextBoxFor(m => m.username, new { @class = "login_fields", placeholder = "Email" })
+                </div>
+                <div class="form-group">
+                    <p class="input_title">Password</p>
+                    @Html.PasswordFor(m => m.password, new {  @class = "login_fields", placeholder = "Password" })
+                </div>
+                <button class="btn btn-lg btn-primary" type="submit">Login</button>
+            </form><!-- /form -->
+        </div><!-- /card-container -->
+    </div><!-- /container -->
+}
+
+
+@*<div class="row">
+        <h2 class="text-center">Login below</h2>
+    </div>
+    <div class="form-inline text-center">
+        <div>
+            @Html.LabelFor(model => model.username, "Email Address", htmlAttributes: new { @class = "control-label col-md-2-" })
+            <span class="col-md-10-">
+                @Html.EditorFor(model => model.username, new { htmlAttributes = new { @class = "form-control" } })
+            </span>
+        </div>
+        <div>
+            @Html.LabelFor(model => model.password, "Password", htmlAttributes: new { @class = "control-label col-md-2-" })
+            <span class="col-md-10-">
+                @Html.PasswordFor(model => model.password, new { htmlAttributes = new { @class = "form-control" } })
+            </span>
+        </div>
+    </div>
+    @if (ViewBag.ErrorMsg != null)
+        {
+            @Html.Label("Incorrect login", new { @class = "text-danger" })
+        }*@
