@@ -128,14 +128,20 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\DocumentsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\CommonProcs.cs" />
     <Compile Include="Helpers\MailHelper.cs" />
+    <Compile Include="Helpers\SelectListHelper.cs" />
     <Compile Include="Models\Area1Data.cs" />
     <Compile Include="Models\clsDataGetter.cs" />
+    <Compile Include="Models\DocCategory.cs" />
+    <Compile Include="Models\DocSubCategory.cs" />
+    <Compile Include="Models\Documents.cs" />
+    <Compile Include="Models\DocumentViewModel.cs" />
     <Compile Include="Models\Login.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -176,9 +182,15 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\Welcome.cshtml" />
+    <Content Include="Views\Documents\DocumentsCreate.cshtml" />
+    <Content Include="Views\Documents\DocumentsDelete.cshtml" />
+    <Content Include="Views\Documents\DocumentsDetails.cshtml" />
+    <Content Include="Views\Documents\DocumentsEdit.cshtml" />
+    <Content Include="Views\Documents\DocumentsIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Uploads\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />

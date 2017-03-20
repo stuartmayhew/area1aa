@@ -17,6 +17,9 @@ namespace Area1.Models
         }
 
         public DbSet<Login> Login { get; set; }
+        public DbSet<DocCategory> DocCategory { get; set; }
+        public DbSet<DocSubCategory> DocSubCategory { get; set; }
+        public DbSet<Documents> Documents { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

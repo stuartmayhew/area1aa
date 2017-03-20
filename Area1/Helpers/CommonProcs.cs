@@ -10,6 +10,8 @@ namespace Area1.Helpers
     public static class CommonProcs
     {
         public static clsDataGetter dg = new clsDataGetter(ConfigurationManager.ConnectionStrings["area1"].ConnectionString);
+        public static Area1Data dbAR = new Area1Data();
+
 
         public static int GetCurrUser()
         {

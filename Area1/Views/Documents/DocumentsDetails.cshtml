@@ -1,0 +1,58 @@
+﻿@model Area1.Models.Documents
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Documents</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.docCat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.docCat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.docTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.docTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.docPath)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.docPath)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.docAuthor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.docAuthor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.docDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.docDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.docID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

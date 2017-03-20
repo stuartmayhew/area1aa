@@ -10,8 +10,6 @@ namespace Area1.Controllers
 {
     public class HomeController : Controller
     {
-        public Area1Data db = new Area1Data();
-
         public ActionResult Login()
         {
             Login login = ReadCookie();
@@ -26,7 +24,7 @@ namespace Area1.Controllers
         [HttpPost]
         public ActionResult Login(Login login)
         {
-            Login newLogin = db.Login.FirstOrDefault(x => x.username == login.username && x.password == login.password);
+            Login newLogin = CommonProcs.dbAR.Login.FirstOrDefault(x => x.username == login.username && x.password == login.password);
             if (newLogin == null)
             {
                 ViewBag.ErrorMsg = "Login data is incorrect!";
