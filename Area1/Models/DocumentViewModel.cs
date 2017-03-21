@@ -13,5 +13,10 @@ namespace Area1.Models
         public int docCategory { get; set; }
         public List<Documents> documents { get; set; }
         public List<DocSubCategory> docSubCategories { get; set; }
+        public DocumentViewModel()
+        {
+            documents = new List<Documents>();
+            docSubCategories = new List<DocSubCategory>();
+        }
     }
 }

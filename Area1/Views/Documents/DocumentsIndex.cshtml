@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Area1.Models.DocumentViewModel>
+﻿@model Area1.Models.DocumentViewModel
 
 @{
     ViewBag.Title = "Archives";
@@ -12,46 +12,47 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.docCat)
+            @Html.Label("Category")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.docTitle)
+            @Html.Label("Title")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.docPath)
+            @Html.Label("Author")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.docAuthor)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.docDate)
+            @Html.Label("Date Uploaded")
         </th>
         <th></th>
     </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.docCat)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.docTitle)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.docPath)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.docAuthor)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.docDate)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "DocumentsEdit", new { id=item.docID }) |
-            @Html.ActionLink("Details", "DocumentsDetails", new { id=item.docID }) |
-            @Html.ActionLink("Delete", "DocumentsDelete", new { id=item.docID })
-        </td>
-    </tr>
-}
+    @foreach (var subCat in Model.docSubCategories)
+    {
+        <tr><th colspan="10">@subCat.subCatTitle</th></tr>
+        foreach (var item in Model.documents.Where(x => x.docSubCat == subCat.subCatID))
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.docCat)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.docTitle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.docPath)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.docAuthor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.docDate)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "DocumentsEdit", new { id = item.docID }) |
+                    @Html.ActionLink("Details", "DocumentsDetails", new { id = item.docID }) |
+                    @Html.ActionLink("Delete", "DocumentsDelete", new { id = item.docID })
+                </td>
+            </tr>
+        }
+    }
 
 </table>

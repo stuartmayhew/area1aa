@@ -19,7 +19,17 @@ namespace Area1.Controllers
 
         public ActionResult DocumentsIndex(int CatID)
         {
-            return View(db.Documents.Where(x => x.docCat == CatID).ToList());
+            DocumentViewModel dvm = new DocumentViewModel();
+            dvm.docSubCategories = CommonProcs.dbAR.DocSubCategory.Where(x => x.dCatID == CatID).ToList();
+            foreach(var subCat in dvm.docSubCategories)
+            {
+                List<Documents> docs = CommonProcs.dbAR.Documents.Where(x => x.docSubCat == subCat.subCatID).ToList();
+                foreach (var doc in docs)
+                {
+                    dvm.documents.Add(doc);
+                }
+            }
+            return View("DocumentsIndex",dvm);
         }
 
        public ActionResult DocumentsCreate()
@@ -27,6 +37,7 @@ namespace Area1.Controllers
             SelectList CatList = SelectListHelper.getDocCategories();
             SelectList SubCatList = SelectListHelper.getDocSubCategories(1);
             ViewBag.CatList = CatList;
+            ViewBag.SubCatList = SubCatList;
             return View();
         }
 
