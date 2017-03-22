@@ -32,10 +32,10 @@ namespace Area1.Controllers
             return View("DocumentsIndex",dvm);
         }
 
-       public ActionResult DocumentsCreate()
+       public ActionResult DocumentsCreate(int CatID)
         {
             SelectList CatList = SelectListHelper.getDocCategories();
-            SelectList SubCatList = SelectListHelper.getDocSubCategories(1);
+            SelectList SubCatList = SelectListHelper.getDocSubCategories(CatID);
             ViewBag.CatList = CatList;
             ViewBag.SubCatList = SubCatList;
             return View();
@@ -73,7 +73,7 @@ namespace Area1.Controllers
                     CommonProcs.dbAR.SaveChanges();
                 }
             }
-            return View("DocumentsIndex");
+            return View("DocumentsDetails");
         }
 
         // GET: Documents/Edit/5

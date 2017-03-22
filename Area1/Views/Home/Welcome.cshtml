@@ -8,8 +8,14 @@
     <title>Welcome</title>
 </head>
 <body>
-    <div> 
+    <div>
         <h2 class="text-center">Welcome back, @Model.firstName</h2>
+    </div>
+    <div class="text-center">
+        <ul>
+            <li>@Html.ActionLink("Upload Archives Documents", "DocumentsCreate", "Documents", new { CatID = 1 }, null)</li>
+            <li>@Html.ActionLink("View Archives", "DocumentsIndex", "Documents", new { CatID = 1 }, null)</li>
+        </ul>
     </div>
 </body>
 </html>
